@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Floating Mic Button (New) -->
+    <button id="floatingMic" class="floating-mic-button d-none">
+        <i class="bi bi-mic-fill"></i>
+    </button>
+
+    <!-- Voice Control Status -->
+    <div id="floatingStatus" class="floating-status"></div>
+
+    <!-- Left Side Navigation -->
+    <nav class="side-nav">
+        <ul>
+            <li>
+                <a href="#home" class="nav-icon active" data-bs-toggle="tooltip" data-bs-placement="right" title="Home">
+                    <i class="bi bi-house-fill"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="nav-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="About">
+                    <i class="bi bi-person-fill"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#skills" class="nav-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="Skills">
+                    <i class="bi bi-gear-fill"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#projects" class="nav-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="Projects">
+                    <i class="bi bi-code-square"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="nav-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="Contact">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Voice Control Status -->
+    <div id="floatingStatus" class="floating-status"></div>
+
+    <!-- Home Section -->
+    <section id="home" class="section-full mirror-bg">
+        <div class="container h-100 d-flex align-items-center justify-content-center">
+            <div class="text-center text-white">
+                <h1 class="display-1 animate-title mb-4">Welcome to My Portfolio</h1>
+                <p class="lead animate-title mb-5">Full Stack Developer & AI Enthusiast</p>
+                <div class="mic-container">
+                    <button id="voiceButton" class="voice-button">
+                        <i class="bi bi-mic-fill"></i>
+                    </button>
+                    <p id="statusText" class="status-text mt-3">Click to start</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-full mirror-bg">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <div class="profile-container">
+                        <div class="profile-circle">
+                            <div class="profile-border"></div>
+                            <img src="/api/placeholder/400/400" alt="Profile Photo" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="about-content text-white">
+                        <h2 class="mb-4">About Me</h2>
+                        <p class="lead">A passionate developer with expertise in full-stack development and AI.</p>
+                        <div class="social-links mt-4">
+                            <a href="https://linkedin.com" class="btn btn-outline-light me-2">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com" class="btn btn-outline-light">
+                                <i class="bi bi-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-full mirror-bg">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="skills-tree text-white">
+                <h2 class="text-center mb-5 hover-effect">Skills & Expertise</h2>
+                <div class="skills-container">
+                    <!-- Frontend Skills -->
+                    <div class="skill-category">
+                        <h3 class="hover-effect">Frontend Development</h3>
+                        <div class="skill-branch" data-delay="0">
+                            <div class="skill-icon">
+                                <svg class="skill-svg html-icon" viewBox="0 0 24 24">
+                                    <path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                                </svg>
+                                <span class="hover-effect">HTML5</span>
+                            </div>
+                        </div>
+                        <!-- Add CSS and JS skill branches similarly -->
+                    </div>
+
+                    <!-- Backend Skills -->
+                    <div class="skill-category">
+                        <h3 class="hover-effect">Backend Development</h3>
+                        <div class="skill-branch" data-delay="0.4">
+                            <div class="skill-icon">
+                                <svg class="skill-svg python-icon" viewBox="0 0 24 24">
+                                    <path fill="#3776AB" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/>
+                                </svg>
+                                <span class="hover-effect">Python</span>
+                            </div>
+                        </div>
+                        <!-- Add Java skill branch similarly -->
+                    </div>
+
+                    <!-- Database Skills -->
+                    <!-- AI/ML/NLP Skills -->
+                    [Similar structure for other skill categories]
+                </div>
+
+                <!-- Resume Download Button -->
+                <div class="text-center mt-5">
+                    <a href="path/to/resume.pdf" class="btn btn-gradient btn-lg hover-effect" download>
+                        <i class="bi bi-download me-2"></i>Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-full mirror-bg">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="projects-carousel w-100">
+                <h2 class="text-center text-white mb-5">Projects</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="project-card-container">
+                                        <div class="flip-card">
+                                            <div class="flip-card-inner">
+                                                <div class="flip-card-front">
+                                                    <img src="/api/placeholder/400/300" alt="Project 1">
+                                                </div>
+                                                <div class="flip-card-back">
+                                                    <h3>Project 1</h3>
+                                                    <p>Detailed description of project 1</p>
+                                                    <a href="#" class="btn btn-light">View Project</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more carousel items -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-full mirror-bg">
+        <div class="container h-100 d-flex align-items-center justify-content-center">
+            <div class="contact-container text-white">
+                <h2 class="text-center mb-5">Contact Me</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form id="contactForm" class="contact-form">
+                            <div class="mb-4">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="d-grid gap-3">
+                                <button type="submit" class="btn btn-gradient">
+                                    <span class="spinner-border spinner-border-sm me-2 d-none" role="status"></span>
+                                    Send Message
+                                </button>
+                                <a href="https://wa.me/your-number" class="btn btn-success">
+                                    <i class="bi bi-whatsapp"></i> Contact via WhatsApp
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

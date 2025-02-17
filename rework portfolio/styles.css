@@ -1,0 +1,445 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+/* Section Heights */
+.section-full {
+    min-height: 100vh;
+    height: 100vh;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Mirror Background Effect */
+.mirror-bg {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.mirror-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    pointer-events: none;
+}
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0.5rem;
+    border-radius: 0 20px 20px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-icon {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-icon::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: #0dcaf0;
+    transition: width 0.3s ease;
+}
+
+.nav-icon:hover::after,
+.nav-icon.active::after {
+    width: 20px;
+}
+
+.nav-icon:hover {
+    color: #0dcaf0;
+    transform: scale(1.2);
+}
+
+/* Voice Control Styles */
+.mic-container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.voice-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.voice-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    animation: ripple 1.5s infinite;
+}
+
+.voice-button i {
+    font-size: 32px;
+    color: white;
+}
+
+.voice-button.listening {
+    background: #dc3545;
+    animation: pulse 1.5s infinite;
+}
+
+/* New Floating Mic Button Styles i changed upto before profile styles */
+.floating-mic-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-mic-button i {
+    color: white;
+    font-size: 20px;
+}
+
+.floating-mic-button.listening {
+    background: #dc3545;
+    animation: pulse 1.5s infinite;
+}
+
+/* Profile Styles */
+.profile-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.profile-circle {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+}
+
+.profile-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    animation: rotate 4s linear infinite;
+    background: linear-gradient(45deg, #0dcaf0, #6610f2) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-circle:hover .profile-image {
+    transform: scale(1.1);
+}
+
+/* Skills Tree Styles */
+.skills-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+.skills-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.1);
+}
+
+.skill-branch {
+    opacity: 0;
+    transform: translateX(-20px);
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.skill-branch::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-50%);
+}
+
+.skill-branch.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* .skill-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.2);
+} */
+
+.skill-svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+    transition: all 0.3s ease;
+}
+
+.skill-icon:hover .skill-svg {
+    transform: rotate(360deg);
+}
+
+/* Skills Category Styles */
+.skill-category {
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+/* Enhanced Skill Icon Styles */
+.skill-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Projects Carousel */
+.projects-carousel {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card-back {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    transform: rotateY(180deg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: none;
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, #0dcaf0, #6610f2);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+/*.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 202, 240, 0.3);
+}
+*/ 
+/* Button Hover Effects */
+.btn-gradient:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(13, 202, 240, 0.4);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .skills-container {
+        padding-left: 20px;
+    }
+
+    .flip-card {
+        height: 250px;
+    }
+}
