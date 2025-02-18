@@ -1,2 +1,3 @@
 # my-portfolio
-under development
+personal portfolio using html, css and Javascript
+still under development
